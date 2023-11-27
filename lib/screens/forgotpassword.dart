@@ -36,7 +36,7 @@ class _ForgottState extends State<Forgott> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.arrow_back_rounded),
-                TextButton(onPressed: () {}, child: Text('back to Login'))
+                TextButton(onPressed: () {}, child: Text('back to Logi'))
               ],
             ),
           )
