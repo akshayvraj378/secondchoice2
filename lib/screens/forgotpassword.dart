@@ -8,26 +8,52 @@ class Forgott extends StatefulWidget {
 }
 
 class _ForgottState extends State<Forgott> {
+  final loginkey = GlobalKey<FormState>();
+  bool pass = false;
+  var passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
         Column(children: [
           Image(image: AssetImage('assets/images/forgot.jpg')),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Enter your Email', border: OutlineInputBorder()),
+          Form(
+            key: loginkey,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: TextFormField(
+                style: TextStyle(color: Colors.black87),
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.grey,
+                    hintText: 'Email',
+                    hintStyle: TextStyle(color: Colors.black87),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(100))),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'please enter your email';
+                  }
+                  if (!RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                      .hasMatch(value)) {
+                    return "Enter a valid email address";
+                  }
+                  return null;
+                },
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 40),
             child: ElevatedButton(
-                style: ButtonStyle(
+                style: const ButtonStyle(
                     fixedSize: MaterialStatePropertyAll(Size(150, 50)),
                     backgroundColor: MaterialStatePropertyAll(Colors.green)),
-                onPressed: () {},
+                onPressed: () {
+                  loginkey.currentState!.validate();
+                },
                 child: Text('Reset password')),
           ),
           Padding(
@@ -39,7 +65,7 @@ class _ForgottState extends State<Forgott> {
                 TextButton(onPressed: () {}, child: Text('back to Logi'))
               ],
             ),
-          )
+          ),
         ]),
       ]),
     );
