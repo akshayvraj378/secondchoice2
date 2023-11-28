@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../trash/logi.dart';
+
 class Forgott extends StatefulWidget {
   const Forgott({super.key});
 
@@ -16,7 +18,7 @@ class _ForgottState extends State<Forgott> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
-        Column(children: [
+        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Image(image: AssetImage('assets/images/forgot.jpg')),
           Form(
             key: loginkey,
@@ -26,12 +28,12 @@ class _ForgottState extends State<Forgott> {
                 style: TextStyle(color: Colors.black87),
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey,
+                    fillColor: Colors.black12,
                     hintText: 'Email',
                     hintStyle: TextStyle(color: Colors.black87),
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(100))),
+                        borderRadius: BorderRadius.circular(12))),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'please enter your email';
@@ -62,7 +64,11 @@ class _ForgottState extends State<Forgott> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.arrow_back_rounded),
-                TextButton(onPressed: () {}, child: Text('back to Logi'))
+                TextButton(onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context, MaterialPageRoute(builder: (context) =>
+                      Log(),), (route) => false);
+                }, child: Text('Back to Login'))
               ],
             ),
           ),
