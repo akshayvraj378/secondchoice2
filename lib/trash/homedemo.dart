@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:easy_search_bar/easy_search_bar.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -27,11 +26,14 @@ class _HomePagesState extends State<HomePages> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black12,
-      appBar: AppBar(centerTitle: true, title: Text("Choice Is Yours")),
+      appBar: AppBar(
+          centerTitle: true,
+          title: Text("Choice Is Yours"),
+          backgroundColor: Colors.transparent),
       drawer: Drawer(
           child: Container(
         decoration: BoxDecoration(
-          color: Colors.black38,
+          color: Colors.greenAccent,
         ),
       )),
       body: ListView.builder(
@@ -41,8 +43,8 @@ class _HomePagesState extends State<HomePages> {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 90.0, // has the effect of softening the shadow
+                  color: Colors.greenAccent,
+                  blurRadius: 1.0, // has the effect of softening the shadow
                   spreadRadius: 1.0, // has the effect of extending the shadow
                   offset: Offset(
                     5.0, // horizontal, move right 10
@@ -123,25 +125,27 @@ class _HomePagesState extends State<HomePages> {
           );
         },
       ),
-      bottomNavigationBar:
-          CurvedNavigationBar(backgroundColor: Colors.transparent, height: 55,items: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.call),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.currency_bitcoin),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.person_outline),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.favorite_border),
-        )
-      ]),
+      bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          height: 55,
+          items: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.call),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.currency_bitcoin),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.person_outline),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.favorite_border),
+            )
+          ]),
     );
   }
 }

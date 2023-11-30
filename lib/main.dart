@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:secondchoice2/screens/forgotpassword.dart';
 import 'package:secondchoice2/screens/settings.dart';
 import 'package:secondchoice2/trash/Regi.dart';
+import 'package:secondchoice2/trash/cardetails.dart';
 import 'package:secondchoice2/trash/home.dart';
 import 'package:secondchoice2/trash/homedemo.dart';
 import 'package:secondchoice2/trash/logi.dart';
@@ -20,6 +21,6 @@ class Myapp extends StatefulWidget {
 class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomePages(),);
+    return const MaterialApp(home: Details(),);
   }
 }
