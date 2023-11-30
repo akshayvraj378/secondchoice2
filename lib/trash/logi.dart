@@ -3,6 +3,8 @@ import 'package:secondchoice2/trash/Regi.dart';
 import 'package:secondchoice2/trash/registration.dart';
 
 import '../screens/forgotpassword.dart';
+import 'HomeChat.dart';
+import 'homedemo.dart';
 
 class Log extends StatefulWidget {
   const Log({super.key});
@@ -131,6 +133,7 @@ class _LogState extends State<Log> {
                             MaterialStatePropertyAll(Colors.blue)),
                         onPressed: () {
                           loginkey.currentState!.validate();
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePages(),));
                         },
                         child: Text('login')),
                   ],
