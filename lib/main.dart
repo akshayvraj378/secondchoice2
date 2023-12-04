@@ -1,15 +1,12 @@
-
 import 'package:flutter/material.dart';
-import 'package:secondchoice2/screens/forgotpassword.dart';
-import 'package:secondchoice2/screens/settings.dart';
+import 'package:flutter/services.dart';
+import 'package:secondchoice2/settings/settin.dart';
 import 'package:secondchoice2/trash/Home2chat.dart';
 import 'package:secondchoice2/trash/Regi.dart';
-import 'package:secondchoice2/trash/cardetails.dart';
-import 'package:secondchoice2/trash/HomeChat.dart';
-import 'package:secondchoice2/trash/home.dart';
-import 'package:secondchoice2/trash/homedemo.dart';
-import 'package:secondchoice2/trash/logi.dart';
-import 'package:secondchoice2/trash/registration.dart';
+import 'package:secondchoice2/trash/boknow.dart';
+import 'package:secondchoice2/trash/login.dart';
+import 'package:secondchoice2/trash/profile%20pagr.dart';
+import 'package:secondchoice2/trash/tabbar.dart';
 main(){
   runApp(Myapp());
 }
@@ -21,8 +18,13 @@ class Myapp extends StatefulWidget {
 }
 
 class _MyappState extends State<Myapp> {
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: Log(),);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    return  MaterialApp(home: Prof(),);
   }
 }

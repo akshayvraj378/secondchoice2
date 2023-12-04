@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'logi.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Regis extends StatefulWidget {
   const Regis({super.key});
@@ -12,6 +11,16 @@ class Regis extends StatefulWidget {
 class _RegisState extends State<Regis> {
   final registerkey = GlobalKey<FormState>();
   var password = TextEditingController();
+  void makePhoneCall(String phoneNumber) async {
+    String url = 'tel:$phoneNumber';
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -128,11 +137,7 @@ class _RegisState extends State<Regis> {
                             style: TextStyle(color: Colors.black)),
                         TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Log(),
-                                  ));
+                              makePhoneCall('');
                             },
                             child: const Text(
                               'Login',

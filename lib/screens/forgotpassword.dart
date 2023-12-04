@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../trash/logi.dart';
 
 class Forgott extends StatefulWidget {
   const Forgott({super.key});
@@ -65,9 +64,9 @@ class _ForgottState extends State<Forgott> {
               children: [
                 Icon(Icons.arrow_back_rounded),
                 TextButton(onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                      context, MaterialPageRoute(builder: (context) =>
-                      Log(),), (route) => false);
+                  // Navigator.pushAndRemoveUntil(
+                  //     context, MaterialPageRoute(builder: (context) =>
+                  //     Log(),), (route) => false);
                 }, child: Text('Back to Login'))
               ],
             ),

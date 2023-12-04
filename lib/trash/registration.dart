@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:secondchoice2/trash/logi.dart';
 
 import '../screens/forgotpassword.dart';
 
@@ -178,9 +177,9 @@ class _REState extends State<RE> {
                   children: [
                     Text('Already have an account?'),
                     TextButton(onPressed: () {
-                      Navigator.pushAndRemoveUntil(context,
-                          MaterialPageRoute(builder: (context) => const Log(),), (
-                              route) => false);
+                      // Navigator.pushAndRemoveUntil(context,
+                      //     MaterialPageRoute(builder: (context) => const Log(),), (
+                      //         route) => false);
                     }, child: Text('Login'))
                   ],
                 ),
