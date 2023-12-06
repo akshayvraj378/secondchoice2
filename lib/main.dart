@@ -4,7 +4,7 @@ import 'package:secondchoice2/settings/settin.dart';
 import 'package:secondchoice2/trash/Home2chat.dart';
 import 'package:secondchoice2/trash/Regi.dart';
 import 'package:secondchoice2/trash/boknow.dart';
-import 'package:secondchoice2/trash/drawer.dart';
+import 'package:secondchoice2/trash/booking page';
 import 'package:secondchoice2/trash/login.dart';
 import 'package:secondchoice2/trash/profile%20pagr.dart';
 import 'package:secondchoice2/trash/tabbar.dart';
