@@ -28,7 +28,7 @@ class _LoginpageuiState extends State<Loginpageui> {
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                   Container(
-                    height: 700,
+                    height: 620,
                     width: size.width,
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -48,88 +48,91 @@ class _LoginpageuiState extends State<Loginpageui> {
                         ],
                       ),
                     ),
-                    Container(
-                      width: 350,
-                      height: 280,
-                      decoration: BoxDecoration(
-                          gradient: const LinearGradient(colors: [
-                            Colors.white24,
-                            Colors.white30,
-                            Colors.blueGrey
-                          ]),
-                          boxShadow: [
-                            BoxShadow(blurRadius: 2, color: Colors.black12)
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: SingleChildScrollView(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Center(
-                                  child: Text('Login',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w900,
-                                          fontSize: 30)),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 18,right: 18),
+                      child: Container(
+
+                        height: 280,
+                        decoration: BoxDecoration(
+                            gradient: const LinearGradient(colors: [
+                              Colors.white24,
+                              Colors.white30,
+                              Colors.blueGrey
+                            ]),
+                            boxShadow: [
+                              BoxShadow(blurRadius: 2, color: Colors.black12)
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: SingleChildScrollView(
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(11.0),
+                                  child: Center(
+                                    child: Text('Login',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            fontSize: 30)),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 20),
-                                child: Text('Email',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600, fontSize: 16)),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 19, right: 19),
-                                child: TextFormField(
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: Text('Email',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600, fontSize: 16)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 19, right: 19),
+                                  child: TextFormField(
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter your email';
+                                        }
+                                        if (!RegExp(
+                                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                            .hasMatch(value)) {
+                                          return "Enter a valid email address";
+                                        }
+                                        return null;
+                                      },
+                                      decoration: InputDecoration(prefixIcon: Icon(Icons.email_outlined),
+                                          hintText: 'Enter your email')),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20, top: 20),
+                                  child: Text('Password',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600, fontSize: 16)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 19, right: 19),
+                                  child: TextFormField(
+                                    controller: passwordController,
+                                    obscureText: !pass,
+                                    decoration: InputDecoration(prefixIcon: Icon(Icons.lock_clock),
+                                        suffixIcon: IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              pass = !pass;
+                                            });
+                                          },
+                                          icon: Icon(pass
+                                              ? Icons.visibility
+                                              : Icons.visibility_off),
+                                        ),
+                                        hintText: 'Enter your password'),
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return 'Please enter your email';
-                                      }
-                                      if (!RegExp(
-                                          r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                                          .hasMatch(value)) {
-                                        return "Enter a valid email address";
+                                        return 'Please confirm your password';
                                       }
                                       return null;
                                     },
-                                    decoration: InputDecoration(
-                                        hintText: 'Enter your email')),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 20, top: 20),
-                                child: Text('Password',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600, fontSize: 16)),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 19, right: 19),
-                                child: TextFormField(
-                                  controller: passwordController,
-                                  obscureText: !pass,
-                                  decoration: InputDecoration(
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            pass = !pass;
-                                          });
-                                        },
-                                        icon: Icon(pass
-                                            ? Icons.visibility
-                                            : Icons.visibility_off),
-                                      ),
-                                      hintText: 'Enter your password'),
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please confirm your password';
-                                    }
-                                    return null;
-                                  },
+                                  ),
                                 ),
-                              ),
-                            ]),
+                              ]),
+                        ),
                       ),
                     ),
                     Padding(

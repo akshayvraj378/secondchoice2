@@ -7,6 +7,7 @@ import 'package:secondchoice2/trash/blurlogin.dart';
 import 'package:secondchoice2/trash/boknow.dart';
 import 'package:secondchoice2/trash/booking page';
 import 'package:secondchoice2/trash/login.dart';
+import 'package:secondchoice2/trash/loginchatgpt.dart';
 import 'package:secondchoice2/trash/loginnew.dart';
 import 'package:secondchoice2/trash/profile%20pagr.dart';
 import 'package:secondchoice2/trash/tabbar.dart';
@@ -28,6 +29,6 @@ class _MyappState extends State<Myapp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return  MaterialApp(home: Loginpageui(),);
+    return  MaterialApp(home: LoginPageUIchat(),);
   }
 }
